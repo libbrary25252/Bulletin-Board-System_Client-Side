@@ -16,7 +16,7 @@ public class BulletinBoardClient{
         int port = 16000;
         int size = 0;
         Scanner sr = new Scanner(System.in);
-        char charArray[] = new char[ 100 ];
+        char charArray[] = new char[1024];
         String input = "";
         String postInput="";
         String cType;
