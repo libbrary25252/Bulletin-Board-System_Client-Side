@@ -10,8 +10,9 @@ public class BulletinBoardClient{
     
     public static void main(String [] arg) {
         
-        PrintWriter out;
-        BufferedReader br;
+        PrintWriter out = null;
+        BufferedReader br = null;
+        Socket socket = null;
         String ip;
         int port = 16000;
         int size = 0;
@@ -26,7 +27,7 @@ public class BulletinBoardClient{
 
         try{ //open socket and connect 
             System.out.println("IP address: "+ip+"      Port Number:"+port);
-            Socket socket = new Socket(ip,port);
+            socket = new Socket(ip,port);
             out = new PrintWriter(socket.getOutputStream(),true); 
             br = new BufferedReader (new InputStreamReader(socket.getInputStream()));
             System.out.println(socket.isConnected());
@@ -46,8 +47,11 @@ public class BulletinBoardClient{
                         do{
                             input = sr.nextLine();
                             postInput+=input+"\n";
+                            if(input.length()==1&&input.contains(".")){
+                                break;
+                            }
                         }
-                        while(input.length()!=1&&!input.contains("."));
+                        while(input.length()>=1);
                         out.print(postInput+"\n");
                         out.flush();
                         receiveServer(size,charArray,input,br);
@@ -70,25 +74,20 @@ public class BulletinBoardClient{
                         break;
                 }
             }
-            // out.print("POST\nsome text! OK\nmore text.\n.\n"); //send to server
-            // out.flush();
-            // receiveServer(size,charArray,input,br);
-            // out.print("POST\nsome text!\n.\n");
-            // out.flush();
-            // receiveServer(size,charArray,input,br);
-            // out.print("READ\n");
-            // out.flush();
-            // receiveServer(size,charArray,input,br);
-            // out.print("QUIT\n");
-            // out.flush();
-            // receiveServer(size,charArray,input,br);
-            br.close();
-            socket.close();
+           
         }catch (ConnectException ce){
             System.out.println("Connect status: fail");
         }catch (IOException e) {
 		    System.out.println(e);
-		}     
+		}finally{
+            try{
+                out.close();
+                br.close();
+                socket.close();
+            }catch (IOException e) {
+                System.out.println(e);
+            }
+        } 
     }
 
     public static void receiveServer(int size, char[] charArray, String input, BufferedReader br){
