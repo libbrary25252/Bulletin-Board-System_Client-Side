@@ -107,31 +107,3 @@ public class BulletinBoardClient{
 		}   
     }
 }
-
-            // while ((size= br.read(charArray))!=-1 ){
-            //     input = String.valueOf(charArray, 0, size);
-            //     System.out.println(input);
-            //     //size = br.read(charArray);
-            //     System.out.println(size);
-            //     System.out.print(br.ready());
-            //     if(input.contains(".")&&input.contains("OK")){
-            //         //System.out.println("true");
-            //         //break;
-            //     }
-            // }
-
-            // while((size=br.read(charArray)) >=0)  //receive server output
-            // {
-            //     input = String.valueOf(charArray, 0, size);
-            //     System.out.println("Server: "+input);
-            //     for(int i = 0;i<size;i++){
-            //         if(charArray[i] == '\0'&&input.contains("OK")){ //check the message is contain ok and null
-            //             haveNull =true;
-            //             break;
-            //         }
-            //     }
-            //     if(haveNull == true){ //break the while loop and set back the haveNull boolean
-            //         haveNull = false;
-            //         break;
-            //     }
-            //  }
