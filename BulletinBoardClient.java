@@ -12,9 +12,9 @@ public class BulletinBoardClient{
         
         PrintWriter out = null;
         BufferedReader br = null;
-        Socket socket = null;
+        Socket socket = null; // initialize the TCP socket
         String ip;
-        int port = 16000;
+        int port = 16000; // set the default value of port (16000)
         int size = 0;
         Scanner sr = new Scanner(System.in);
         char charArray[] = new char[1024];
@@ -25,21 +25,21 @@ public class BulletinBoardClient{
         System.out.println("Input the IP address:"); 
         ip = sr.nextLine();
 
-        try{ //open socket and connect 
+        try{ //open socket and build the connect
             System.out.println("IP address: "+ip+"      Port Number:"+port);
-            socket = new Socket(ip,port);
-            out = new PrintWriter(socket.getOutputStream(),true); 
-            br = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+            socket = new Socket(ip,port); // build the socket
+            out = new PrintWriter(socket.getOutputStream(),true); // send input from client to server
+            br = new BufferedReader (new InputStreamReader(socket.getInputStream())); // return the input received by server to client
             System.out.println(socket.isConnected());
 
-            if(socket.isConnected()){
-                System.out.println("Connect status: success");
+            if(socket.isConnected()){ //initiate a connection on a socket
+                System.out.println("Connect status: success"); // print the result if the connection is successful
             }else{
                 System.out.println("Connect status: fail");
             }
             while(quit == false){
                 cType = sr.nextLine();
-                switch(cType){
+                switch(cType){ // switch case to accept the commands
                     case "POST":
                         System.out.print("client: ");
                         postInput="";
@@ -47,14 +47,14 @@ public class BulletinBoardClient{
                         do{
                             input = sr.nextLine();
                             postInput+=input+"\n";
-                            if(input.length()==1&&input.contains(".")){
+                            if(input.length()==1&&input.contains(".")){ // send the input till there is a '.' in the single line
                                 break;
                             }
                         }
-                        while(input.length()>=1);
+                        while(input.length()>=1); 
                         out.print(postInput+"\n");
-                        out.flush();
-                        receiveServer(size,charArray,input,br);
+                        out.flush(); // reset the output value in the memory
+                        receiveServer(size,charArray,input,br); // print the response from the server
                         break;
                     case "READ":
                         out.print(cType+"\n");
@@ -75,8 +75,8 @@ public class BulletinBoardClient{
                 }
             }
            
-        }catch (ConnectException ce){
-            System.out.println("Connect status: fail");
+        }catch (ConnectException ce){ 
+            System.out.println("Connect status: fail"); 
         }catch (IOException e) {
 		    System.out.println(e);
 		}finally{
