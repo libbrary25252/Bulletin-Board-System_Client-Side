@@ -97,10 +97,9 @@ public class BulletinBoardClient{
             {
                 input = String.valueOf(charArray, 0, size);
                 System.out.println("Server: "+input);
-                if(input.contains("\0")&& input.contains(".")|| input.contains("ERROR")){ //check the message is contain ok and null and error
+                if(input.contains("\0")&& input.contains(".")|| input.contains("ERROR") ||input.contains("\0")&& input.contains("OK")){ //check the message is contain ok and null and error
                     break;
                 }
-                
             }
         }catch (IOException e) {
 		    System.out.println(e);
