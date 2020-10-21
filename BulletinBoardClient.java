@@ -2,8 +2,6 @@ import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 import javax.swing.*;
-
-
 import java.util.*;
 
 public class BulletinBoardClient{
@@ -39,14 +37,15 @@ public class BulletinBoardClient{
             }
             while(quit == false){
                 cType = sr.nextLine();
+                System.out.println("client: "+cType);
                 switch(cType){ // switch case to accept the commands
                     case "POST":
-                        System.out.print("client: ");
                         postInput="";
                         postInput+=cType+"\n";
                         do{
                             input = sr.nextLine();
                             postInput+=input+"\n";
+                            System.out.println("client: "+input);
                             if(input.length()==1&&input.contains(".")){ // send the input till there is a '.' in the single line
                                 break;
                             }
