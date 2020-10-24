@@ -94,7 +94,7 @@ public class BulletinBoardClient{
             while((size=br.read(charArray)) >=0)  //receive server output
             {
                 input = String.valueOf(charArray, 0, size);
-                System.out.println("Server: "+input);
+                System.out.println("server: "+input);
                 if(input.contains("\0")&& input.contains(".")|| input.contains("ERROR") ||input.contains("\0")&& input.contains("OK")){ //check the message is contain ok and null and error
                     break;
                 }
