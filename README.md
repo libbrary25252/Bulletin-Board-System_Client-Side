@@ -1,4 +1,4 @@
-# Bulletin Board Client<br /><br />
+# Bulletin Board Client
 
 CS3201 Programming Assignment <br />
 Student Name: Ng Lai Ying & Cho Tsz Yan <br />
