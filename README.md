@@ -1,9 +1,10 @@
 # Bulletin Board System - Client Side
 
 CS3201 Programming Assignment <br />
-Student Name: Ng Lai Ying & Cho Tsz Yan <br />
-Student ID: 56273090 & 56345814 <br /><br />
+Student Name: Cho Tsz Yan & Ng Lai Ying <br />
+Student ID: 56345814 & 56273090 <br /><br />
 
 //You must make it clear how to compile and run your code by explaining it in your readme text file. The development environment should also be indicated in this file. //
  
 ## Description
+This project aims to build the client side of the Bulletin Board System, which performs the text exchange between the client and server. In this project, the server program is provided and its default port number is 16000. 
