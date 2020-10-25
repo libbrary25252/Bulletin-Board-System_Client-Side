@@ -30,7 +30,7 @@ public class BulletinBoardClient{
             br = new BufferedReader (new InputStreamReader(socket.getInputStream())); // return the input received by server to client
             System.out.println(socket.isConnected());
 
-            if(socket.isConnected()){ //initiate a connection on a socket
+            if(socket.isConnected()){ //return the connection status on a socket
                 System.out.println("Connect status: success"); // print the result if the connection is successful
             }else{
                 System.out.println("Connect status: fail");
