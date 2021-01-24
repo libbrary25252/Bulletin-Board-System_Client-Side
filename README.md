@@ -18,7 +18,6 @@ In this program, the library 'java.net' is mainly used for the function of the c
 
 To establish the connection between the client and server, the java class Socket is implemented. After setting the default port number 16000, the Socket is built through accepting the port and inputted ip address. Thus, there is the isconnected() function of the Socket class to return the connection status from the server if the connection is sucessful. If the value is true, the "Connection status: success" is printed, else "Connection status: failed" is printed.<br /><br />
 
-After the connection is established, 
 
 
 
